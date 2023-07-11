@@ -4,7 +4,7 @@ import torch.nn as nn
 class Generator(nn.Module):
     def __init__(self, nz):
         super().__init__()
-        self.net = nn.Sequential(
+        self.main = nn.Sequential(
             nn.Linear(128, 256),
             nn.LeakyReLU(0.2),
             nn.Linear(256, 512),
@@ -16,4 +16,4 @@ class Generator(nn.Module):
         )
 
     def forward(self, x):
-        return torch.reshape(self.net(x), (-1, 1, 28, 28))
+        return torch.reshape(self.main(x), (-1, 1, 28, 28))
