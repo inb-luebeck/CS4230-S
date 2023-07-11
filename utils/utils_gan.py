@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class Generator(nn.Module):
-    def __init__(self, nz):
+    def __init__(self):
         super().__init__()
         self.main = nn.Sequential(
             nn.Linear(128, 256),
